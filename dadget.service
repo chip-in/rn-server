@@ -1,0 +1,16 @@
+[Unit]
+Description=dadget server
+After=mongod.service
+
+[Service]
+Type=simple
+ExecStart=/usr/local/nodejs/bin/node lib/server.js
+WorkingDirectory=/root/dadget-master/examples/server
+Restart=always
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=dadget-server
+
+[Install]
+WantedBy=multi-user.target
